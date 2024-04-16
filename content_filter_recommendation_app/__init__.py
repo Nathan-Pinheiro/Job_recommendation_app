@@ -29,9 +29,21 @@ def main():
         resume : Resume = resume_extractor.get_resume_data(file_content)
         st.write(resume)
 
+        if 'num_jobs' not in st.session_state:
+            st.session_state.num_jobs = 10
+
         st.write("Jobs :")
-        recommended_jobs = get_recommended_jobs(job_postings, resume, 50)
-        st.write(recommended_jobs)
+        recommended_jobs = get_recommended_jobs(job_postings, resume, 100)
+
+        for i, job in enumerate(recommended_jobs[:st.session_state.num_jobs]):
+            with st.expander(job['title']):
+                st.write('**Company:**', job['company'])
+                st.write('**Location:**', job['location'])
+                st.write('**Description:**', job['description'])
+
+        if st.session_state.num_jobs < len(recommended_jobs):
+            if st.button("Show more jobs"):
+                st.session_state.num_jobs += 10
 
 if __name__ == '__main__':
     main()

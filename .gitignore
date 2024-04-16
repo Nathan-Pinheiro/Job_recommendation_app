@@ -1,5 +1,2 @@
-dataset/*
-
-!dataset/
-!dataset/database/*
-!dataset/resumes/*
+resources/dataset
+resources/resumes

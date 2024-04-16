@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from spacy.matcher import Matcher
 
-DATA_DIR : str = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'dataset', 'database')
+DATA_DIR : str = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'resources', 'dataset')
 
 JOB_POSTING_URL : str = os.path.join(DATA_DIR, 'job_postings.csv')
 JOB_SKILLS_URL : str = os.path.join(DATA_DIR, 'job_details', 'job_skills.csv')
